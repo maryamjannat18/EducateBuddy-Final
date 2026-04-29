@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--Page title shown-->
+  <title>EducateBuddy</title>
+  <!--FullCalendar CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" />
+  <!-- customer styling -->
+  <link rel="stylesheet" href="styles.css" />
+  <!--google fonts for text style-->
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
+</head>
+
+<body>
+  <!-- LOGIN / SIGNUP section -->
+   <!--when user is not logged in-->
+  <div id="authBox" class="auth-card">
+    <div class="auth-logo">
+      <span class="logo-icon"></span>
+      <span class="logo-text">EducateBuddy</span>
+    </div>
+    
+    <!--changes title between login and signup-->
+    <h2 class="auth-title" id="formTitle">Login Form</h2>
+
+    <!--tabs swtich-->
+    <div class="auth-tabs">
+      <button type="button" class="tab-btn active" id="loginTab">Login</button>
+      <button type="button" class="tab-btn" id="signupTab">Signup</button>
+    </div>
+
+    <!--input field-->
+    <div class="auth-fields">
+      <input id="name" type="text" placeholder="Your name" style="display:none;" />
+      <input id="email" type="email" placeholder="Email Address" />
+      <input id="password" type="password" placeholder="Password" />
+    </div>
+
+    <!--reset password link-->
+    <p class="forgot-text" id="forgotPassword">Forgot password?</p>
+    <!--buttons to singup or login -->
+    <button id="loginBtn" class="main-auth-btn">Login</button>
+    <button id="signupBtn" class="main-auth-btn" style="display:none;">Sign up</button>
+    <!--reset password verification-->
+    <button id="resendBtn" class="resend-btn">Resend verification email</button>
+
+    <!--success or error message-->
+    <p id="msg"></p>
+
+    <p class="bottom-text" id="bottomText">
+      Not a member? <span id="signupNow">Signup now</span>
+    </p>
+  </div>
+
+  <!-- DASHBOARD section -->
+   <!-- shown when logged in-->
+  <div id="dashBox" style="display:none;">
+    <!-- navigation top bar-->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <span class="logo-icon"></span>
+        <span class="logo-text">EducateBuddy</span>
+      </div>
+      <!--Navigation button to switch pages-->
+      <nav class="header-nav">
+        <button id="homePageBtn" class="nav-btn active">Home</button>
+        <button id="groupsPageBtn" class="nav-btn">Groups</button>
+        <button id="calendarPageBtn" class="nav-btn">Calendar</button>
+      </nav>
+      <!--profile, notifications, logout-->
+      <div class="header-right">
+        <div class="notification-wrapper">
+          <!--profile button -->
+          <button id="profileBtn" class="profile-avatar-btn" title="Your profile">👤</button>
+          <button id="bellBtn" class="icon-btn">
+            <span class="bell-icon">🔔</span>
+          </button>
+          <!-- bell for notification-->
+          <div id="notificationDropdown" class="notification-dropdown">
+            <div class="dropdown-header">
+              <h3>Notifications</h3>
+              <button id="clearNotificationsBtn">Clear all</button>
+            </div>
+            <ul id="notificationList"></ul>
+          </div>
+        </div>
+        <!--logout button-->
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- HOME PAGE -->
+      <section id="homePage" class="page-section">
+        <div class="hero-section">
+          <div class="hero-text">
+            <h1>Study together </h1>
+            <p>Welcome to EducateBuddy, your collaborative platform for group projects. Find supportive study groups, manage tasks, and share resources on everything from coursework to exam prep.</p>
+            <!--button to switch to group page -->
+            <button class="cta-btn" onclick="document.getElementById('groupsPageBtn').click()">Get Started →</button>
+          </div>
+        </div>
+        
+        <!-- grid to show 4 features-->
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon"></span>
+            <h3>Create Groups</h3>
+            <p>Start study groups with unique codes to share with classmates</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon"></span>
+            <h3>Track Tasks</h3>
+            <p>Manage to-do lists with deadlines to stay on top of assignments</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon"></span>
+            <h3>Chat Together</h3>
+            <p>Real-time messaging keeps your team connected</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon"></span>
+            <h3>Share Files</h3>
+            <p>Upload and share documents with your study group</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- GROUPS PAGE -->
+      <section id="groupsPage" class="page-section" style="display:none;">
+        <div class="groups-layout">
+          <!-- Left sidebar -->
+          <aside class="groups-sidebar">
+            <!--creates group-->
+            <div class="sidebar-card">
+              <h3>Create a Group</h3>
+              <input id="groupName" type="text" placeholder="Group name (e.g., AI Coursework)" class="input-field" />
+              <button id="createGroupBtn" class="primary-btn">+ Create Group</button>
+            </div>
+            <!--join group section-->
+            <div class="sidebar-card">
+              <h3>Join a Group</h3>
+              <input id="groupCode" type="text" placeholder="Enter Group Code" class="input-field" />
+              <button id="joinGroupBtn" class="secondary-btn">Join Group</button>
+            </div>
+            <!--status message-->
+            <p id="groupMsg" class="status-msg"></p>
+            <!-- list of groups-->
+            <div class="sidebar-card">
+              <h3>Your Groups</h3>
+              <ul id="groupList" class="group-list"></ul>
+            </div>
+          </aside>
+
+          <!-- Main chat area -->
+          <div class="chat-main">
+            <div class="chat-header">
+              <h2 id="chatTitle">Select a Group</h2>
+              <!-- buttons to leave ot delete-->
+              <div class="chat-actions">
+                <button id="leaveGroupBtn" class="action-btn">Leave Group</button>
+                <button id="deleteGroupBtn" class="action-btn danger">Delete Group</button>
+              </div>
+            </div>
+            <!--  hint before selecting group-->
+            <p class="chat-hint" id="chatHint">Click a group to open its chat and tasks.</p>
+            <!-- Chat area-->
+            <div id="chatBox" style="display:none;">
+              <h4>👥 Group Members</h4>
+              <ul id="memberList"></ul>
+
+              <h4> Group To-Do List</h4>
+              <!--task creation-->
+              <div id="todoSection">
+                <input id="todoInput" type="text" placeholder="Add a task..." />
+                <input id="todoDeadline" type="date" />
+                <!-- dropdown of members to assign task-->
+                <select id="todoAssignee" class="todo-assignee-select">
+                  <option value="">Assign to...</option>
+                </select>
+                <button id="addTodoBtn">Add Task</button>
+                <ul id="todoList"></ul>
+              </div>
+
+              <!-- ACTUAL MESSAGES-->
+              <h4> Messages</h4>
+              <div id="messages"></div>
+              <!--input to send message and files-->
+              <div class="message-input-area">
+                <button id="shareFileBtn">📎</button>
+                <input id="messageInput" type="text" placeholder="Type a message..." />
+                <button id="sendMsgBtn">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <!-- CALENDAR PAGE -->
+      <section id="calendarPage" class="page-section" style="display:none;">
+        <div class="calendar-container">
+          <div class="calendar-header-bar">
+            <h2>My Task Calendar</h2>
+            <p class="calendar-subtitle">All your tasks with deadlines across all groups</p>
+          </div>
+          <!-- fullcalendar element-->
+          <div id="calendarEl"></div>
+        </div>
+      </section>
+
+    </main>
+
+    </main>
+<footer class="main-footer">
+  <div class="footer-content">
+    
+    <div class="footer-brand">
+      <span class="footer-logo"></span>
+      <span class="footer-title">EducateBuddy</span>
+      <p>Helping students collaborate, organise, and succeed.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="#" id="footerHome">Home</a>
+      <a href="#" id="footerGroups">Groups</a>
+    </div>
+
+  </div>
+  <!--Shortcut links-->
+  <div class="footer-bottom">
+    © <span id="year"></span> EducateBuddy. All rights reserved.
+  </div>
+</footer>
+
+        <!-- PROFILE MODAL -->
+<div id="profileModal" class="profile-modal-overlay">
+  <div class="profile-modal-card">
+    <h2>Your Profile</h2>
+    <!-- email displayed-->
+    <p id="profileEmail" class="profile-email"></p>
+    <!--editable name-->
+    <label>Display Name</label>
+    <input id="profileName" type="text" placeholder="Your name" class="input-field" />
+    <!--editable bio-->
+    <label>Bio</label>
+    <textarea id="profileBio" placeholder="Tell your group a bit about yourself..." class="input-field" rows="3"></textarea>
+
+    <!-- save or cancel-->
+    <div class="profile-modal-actions">
+      <button id="saveProfileBtn" class="primary-btn">Save Changes</button>
+      <button id="closeProfileBtn" class="secondary-btn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <!--FullCalendar script -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+  <!-- JS File, Firebase, chat logic and more-->
+  <script type="module" src="app.js"></script>
+  <!-- Auto update footer year-->
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

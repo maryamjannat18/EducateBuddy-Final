@@ -1,0 +1,1018 @@
+/*  BASE STYLES  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* basic body style and background */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #109498, #035659);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  AUTH CARD  */
+#authBox.auth-card {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+/* login/signup box*/
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+/* logo area*/
+.logo-icon {
+  font-size: 32px;
+}
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #109498;
+}
+/* form title*/
+.auth-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #1f2937;
+}
+/* button toggle*/
+.auth-tabs {
+  display: flex;
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+/* tab button*/
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+/* active tab button*/
+.tab-btn.active {
+  background: #109498;
+  color: white;
+  box-shadow: 0 2px 8px #035659(124, 58, 237, 0.3);
+}
+/* wrapper for email, password, name*/
+.auth-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/* input auth form*/
+.auth-fields input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+.auth-fields input:focus {
+  outline: none;
+  border-color: #109498;
+}
+/*forgot password text */
+.forgot-text {
+  color: #109498;
+  font-size: 14px;
+  margin: 16px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.forgot-text:hover {
+  color: #035659;
+}
+/* login and signup buttons*/
+.main-auth-btn {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #109498;
+  color: white;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+.main-auth-btn:hover {
+  background: #035659;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+}
+/*resent verification email button*/
+.resend-btn {
+  width: 100%;
+  border: 2px solid #e5e7eb;
+  background: white;
+  color: #6b7280;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.resend-btn:hover {
+  border-color: #109498;
+  color: #109498;
+}
+/* text under form*/
+.bottom-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6b7280;
+}
+.bottom-text span {
+  color: #109498;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* message display for errors*/
+#msg {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+/*  DASHBOARD  */
+#dashBox {
+  background: #f9fafb;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/*  HEADER  */
+.dashboard-header {
+  background: #109498;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(3, 86, 89, 0.3);
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-left .logo-icon {
+  font-size: 28px;
+}
+.header-left .logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+.header-nav {
+  display: flex;
+  gap: 8px;
+}
+/* navigation button for home, group and calendar pages*/
+.nav-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.nav-btn:hover {
+  background: white;
+  color: #109498;
+}
+.nav-btn.active {
+  background: white;
+  color: #109498;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+/* right side*/
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+/* icon buttons*/
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  font-size: 18px;
+  line-height: 1;
+}
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+.icon-btn:hover {
+  background: #035659(255, 255, 255, 0.25);
+}
+.bell-icon {
+  font-size: 20px;
+}
+/* logout button*/
+.logout-btn {
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.logout-btn:hover {
+  background: white;
+  color: #109498;
+}
+
+/*  NOTIFICATION DROPDOWN  */
+.notification-wrapper {
+  position: relative;
+}
+.notification-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: white;
+  width: 320px;
+  max-height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+/* shows dropdown when JS adds class*/
+.notification-dropdown.show {
+  display: block;
+}
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.dropdown-header h3 {
+  font-size: 16px;
+  color: #1f2937;
+}
+#clearNotificationsBtn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 13px;
+  cursor: pointer;
+}
+/* lists notifications*/
+#notificationList {
+  list-style: none;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 8px;
+}
+#notificationList li {
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+.notification-time {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/*  PAGE LAYOUT  */
+.main-content {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.page-section {
+  animation: fadeIn 0.3s ease;
+}
+/* smooth animation*/
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/*  HOME PAGE sytles and hover buttons  */
+.hero-section {
+  background: white;
+  border-radius: 16px;
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 20px #035659(0, 0, 0, 0.05);
+}
+.hero-text {
+  max-width: 55%;
+}
+.hero-text h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.hero-text p {
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.cta-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  background: #109498;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cta-btn:hover {
+  background: #035659;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+}
+.hero-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.illustration-circle {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.illustration-emoji {
+  font-size: 80px;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.feature-card {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px #035659(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px #035659(0, 0, 0, 0.1);
+}
+.feature-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 16px;
+}
+.feature-card h3 {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+.feature-card p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/*  GROUPS PAGE  */
+.groups-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+}
+
+.groups-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/*sidebar boxes to join or create groups */
+.sidebar-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px #035659(0, 0, 0, 0.05);
+}
+.sidebar-card h3 {
+  font-size: 16px;
+  color: #1f2937;
+  margin-bottom: 14px;
+}
+/* input styles*/
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #109498;
+}
+/* create group button*/
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #109498;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.primary-btn:hover {
+  background: #035659;
+}
+.primary-btn.small {
+  width: auto;
+  padding: 10px 16px;
+}
+/*join group button */
+.secondary-btn {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #109498;
+  border-radius: 8px;
+  background: white;
+  color: #109498;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.secondary-btn:hover {
+  background: #109498;
+  color: white;
+}
+.status-msg {
+  font-size: 14px;
+  color: #059669;
+  padding: 0 4px;
+}
+/*lists user groups */
+.group-list {
+  list-style: none;
+}
+.group-list li {
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.group-list li span {
+  color: #374151;
+}
+.group-list li button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #109498;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+/*  CHAT AND TASK AREA  */
+.chat-main {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+/*chat header with group name and buttons*/
+.chat-header {
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.chat-header h2 {
+  font-size: 20px;
+  color: #1f2937;
+  margin: 0;
+}
+.chat-actions {
+  display: flex;
+  gap: 10px;
+}
+.action-btn {
+  padding: 8px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.action-btn:hover {
+  border-color: #109498;
+  color: #109498;
+}
+.action-btn.danger {
+  border-color: #fecaca;
+  color: #dc2626;
+}
+.action-btn.danger:hover {
+  background: #fef2f2;
+}
+.chat-hint {
+  padding: 40px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 16px;
+}
+/* Chat box when opened */
+#chatBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Members section */
+#chatBox h4 {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 12px 0;
+}
+#memberList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#memberList li {
+  padding: 8px 14px;
+  background: #f3f4f6;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #374151;
+}
+
+/* To-do section */
+#todoSection {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 12px;
+}
+#todoSection .input-field,
+#todoInput,
+#todoDeadline {
+  padding: 10px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+#todoInput {
+  width: 200px;
+}
+#todoDeadline {
+  width: 150px;
+}
+#addTodoBtn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #109498;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+#todoList {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+}
+#todoList li {
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#todoList li span {
+  flex: 1;
+  color: #374151;
+  font-size: 14px;
+}
+#todoList li button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  background: #109498;
+  color: white;
+  margin-left: 6px;
+}
+#todoList li button:last-child {
+  background: #dc2626;
+}
+
+/* Messages area*/
+#messages {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  height: 350px;
+  max-height: 350px;
+  overflow-y: auto !important;
+  background: #fafafa;
+  margin-bottom: 12px;
+}
+/* row container*/
+.message-row {
+  display: flex;
+  margin-bottom: 12px;
+}
+/* users own messages appear on right*/
+.message-row.me {
+  justify-content: flex-end;
+}
+/*other messages appear on left */
+.message-row.other {
+  justify-content: flex-start;
+}
+/* message bubble*/
+.message-bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+/* user messages*/
+.message-row.me .message-bubble {
+  background: #109498;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+/*other messages */
+.message-row.other .message-bubble {
+  background: #e5e7eb;
+  color: #1f2937;
+  border-bottom-left-radius: 4px;
+}
+/*senders name */
+.message-sender {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+/*timestamp */
+.message-time {
+  font-size: 11px;
+  margin-top: 6px;
+  opacity: 0.7;
+  text-align: right;
+}
+/* Message input area */
+.message-input-area {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#shareFileBtn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#shareFileBtn:hover {
+  background: #e5e7eb;
+}
+
+#messageInput {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+}
+#messageInput:focus {
+  outline: none;
+  border-color: #109498;
+}
+#sendMsgBtn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #109498;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+#sendMsgBtn:hover {
+  background: #035659;
+}
+
+/*  FOOTER SECTION */
+.main-footer {
+  background: #95d3d5;
+  margin-top: 40px;
+  padding: 40px 20px 20px;
+  border-top: 1px solid #d1d5db;
+  border-radius: 12px 12px 0 0;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.footer-brand {
+  max-width: 250px;
+}
+.footer-logo {
+  font-size: 32px;
+}
+.footer-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #109498;
+  margin-left: 5px;
+}
+.footer-brand p {
+  margin-top: 10px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.footer-links h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+.footer-links a {
+  display: block;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 8px;
+  transition: 0.2s;
+}
+.footer-links a:hover {
+  color: #109498;
+}
+.footer-bottom {
+  margin-top: 30px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Profile avatar button */
+.profile-avatar-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-avatar-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+/* Modal overlay */
+.profile-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+.profile-modal-overlay.show {
+  display: flex;
+}
+/* Modal card */
+.profile-modal-card {
+  background: white;
+  border-radius: 16px;
+  padding: 36px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.profile-modal-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+.profile-email {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+.profile-modal-card label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+.profile-modal-card textarea.input-field {
+  resize: vertical;
+}
+.profile-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.notification-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+#addTodoBtn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #109498;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.todo-assignee-select {
+  padding: 10px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background: white;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.todo-assignee-select:focus {
+  outline: none;
+  border-color: #109498;
+}
+
+.task-assignee-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #e0f7f7;
+  color: #035659;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.profile-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/*  CALENDAR PAGE  */
+.calendar-container {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+.calendar-header-bar {
+  margin-bottom: 24px;
+}
+.calendar-header-bar h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+.calendar-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Override FullCalendar colours to match your teal theme */
+.fc-button-primary {
+  background-color: #109498 !important;
+  border-color: #109498 !important;
+}
+.fc-button-primary:hover {
+  background-color: #035659 !important;
+  border-color: #035659 !important;
+}
+.fc-button-primary:not(:disabled).fc-button-active {
+  background-color: #035659 !important;
+  border-color: #035659 !important;
+}
+.fc-event {
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  padding: 2px 6px !important;
+  cursor: pointer !important;
+}
+.fc-toolbar-title {
+  font-size: 20px !important;
+  color: #1f2937 !important;
+}
+
+/* Completed task shows greyed out on calendar */
+.fc-event.completed-task {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
